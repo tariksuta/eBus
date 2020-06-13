@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:eBus.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eBus.Mobile.Views.SjedistePage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:SjedisteViewModel></vm:SjedisteViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout>
+                <Label Text="Slobodno" TextColor="White" FontSize="22" BackgroundColor="Green" HeightRequest="30" WidthRequest="30" VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Label Text="Zauzeto" TextColor="White" FontSize="22" BackgroundColor="Red" HeightRequest="30" WidthRequest="30" VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"/>
+                <Label TextColor="Firebrick" Text="Molimo pricekajte dok se sjedista ucitaju." IsVisible="{Binding Poruka}" 
+                       VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"
+                        FontSize="18"></Label>
+            </StackLayout>
+            <StackLayout>
+                <ScrollView VerticalScrollBarVisibility="Always" HorizontalScrollBarVisibility="Default">
+                    <StackLayout BackgroundColor="White"  HeightRequest="900" >
+                      
+                        <Grid x:Name="gridSjedala" WidthRequest="200" IsEnabled="{Binding VidljivaSjedista}" ></Grid>
+                    </StackLayout>
+                </ScrollView>
+                <StackLayout x:Name="nastavidalje" IsVisible="False">
+                    <Label x:Name="odabranoSjedalo" IsVisible="False"></Label>
+                    <Label x:Name="poruka" BackgroundColor="Gray" HeightRequest="50" FontSize="20" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" LineBreakMode="WordWrap" ></Label>
+                    <Button  Clicked="Button_Clicked" Text="REZERVIŠI" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Firebrick" ></Button>
+
+                </StackLayout>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

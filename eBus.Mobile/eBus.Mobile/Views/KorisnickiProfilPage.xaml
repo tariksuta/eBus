@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:eBus.Mobile.ViewModels" 
+             xmlns:converters="clr-namespace:eBus.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="eBus.Mobile.Views.KorisnickiProfilPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+        </ContentPage.Resources>
+        <ContentPage.BindingContext>
+            <vm:KorisnickiProfilViewModel></vm:KorisnickiProfilViewModel>
+        </ContentPage.BindingContext>
+
+        <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Korisnički profil"
+                   FontSize="20"
+                HorizontalOptions="CenterAndExpand" />
+                <StackLayout Padding="10">
+                    
+                    <Image WidthRequest="250" Source="{Binding Putnik.Slika,Converter={StaticResource imgConv}}"></Image>
+                    <Label Text="Ime"></Label>
+                    <Entry Text="{Binding Putnik.Ime }" ></Entry>
+                    <Label Text="Prezime"></Label>
+                    <Entry Text="{Binding Putnik.Prezime}" ></Entry>
+                    <Label Text="Datum rodjenja"></Label>
+                    <DatePicker  x:Name="DatumRodjenja"  Date="{Binding Putnik.DatumRodjenja}"></DatePicker>
+                    <Label Text="Email"></Label>
+                    <Entry Text="{Binding Putnik.Email}"></Entry>
+                    <Label Text="Datum registracije"></Label>
+                    <Entry Text="{Binding Putnik.DatumRegistracije}" IsReadOnly="true"></Entry>
+                    <StackLayout>
+                        <Label Text="Korisničko ime"></Label>
+                        <Entry Text="{Binding Putnik.KorisnickoIme}"   ></Entry>
+                        <Label Text="Lozinka"></Label>
+                        <Entry x:Name="Lozinka" IsPassword="true" ></Entry>
+                        <Label Text="Potvrdi lozinku"></Label>
+                        <Entry x:Name="PotvrdiLozinku" IsPassword="true" ></Entry>
+                    </StackLayout>
+                    <Button Text="Izmjeni" Clicked="Button_Clicked"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>

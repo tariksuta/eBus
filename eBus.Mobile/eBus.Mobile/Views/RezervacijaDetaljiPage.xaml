@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:eBus.Mobile.ViewModels" 
+             xmlns:converters="clr-namespace:eBus.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="eBus.Mobile.Views.RezervacijaDetaljiPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:RezervacijaDetaljiViewModel></vm:RezervacijaDetaljiViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Black" Padding="10">
+            <Label Text="Detalji rezervacije"
+                   TextColor="White"
+                   FontSize="24"
+                HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout BackgroundColor="White" VerticalOptions="CenterAndExpand" >
+                <Image Source="{Binding Rezervacija.Qrcode,Converter={StaticResource imgConv}}"
+                       
+                       WidthRequest="200"
+                       HeightRequest="350">
+                    
+                </Image>
+            </StackLayout>
+            <StackLayout BackgroundColor="White" >
+                <Button  Text="Otkazi" Clicked="Button_Clicked"></Button>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

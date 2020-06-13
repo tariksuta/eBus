@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:eBus.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eBus.Mobile.Views.PreporukaPage">
+    <ContentPage.BindingContext>
+        <vm:Preporuka2ViewModel></vm:Preporuka2ViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Lista preporucenih destinacija"
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <ListView ItemsSource="{Binding ListaLinija}" ItemSelected="ListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Grid Margin="4" BackgroundColor="Gray" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition  Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                            <RowDefinition Height="*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                   
+                                    <StackLayout Padding="4" BackgroundColor="Yellow" >
+                                        <Label>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="Polazište:           " FontAttributes="Bold" FontSize="18"/>
+                                                        <Span Text="{Binding PolazisteNaziv}"  FontSize="Micro"></Span>
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <StackLayout Padding="4" Grid.Column="1" BackgroundColor="Yellow">
+                                        <Label  Grid.Column="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="Odredište:           " FontAttributes="Bold" FontSize="18"/>
+                                                    <Span Text="{Binding OdredisteNaziv}"  FontSize="Micro"></Span>
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+
+                                        <StackLayout Padding="4" Grid.Row="1"   >
+                                        <Label Grid.Row="1" Grid.ColumnSpan="2" >
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <FormattedString.Spans>
+                                                        <Span Text="Cijena:           " FontAttributes="Bold" FontSize="18"/>
+                                                          <Span   Text="{Binding Cijena,StringFormat='{0:F2} KM'}"  FontSize="Micro" TextColor="White"></Span>
+                                                    </FormattedString.Spans>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+
+                                        <StackLayout Padding="4" Grid.Column="1" Grid.Row="1">
+                                            <Label  Grid.Column="1">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Model:           " FontAttributes="Bold" FontSize="18"/>
+                                                            <Span Text="{Binding Kompanija}"  FontSize="Micro" TextColor="White"></Span>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+
+                                        <StackLayout Padding="4"  Grid.Row="2">
+                                            <Label  Grid.Column="1">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Datum:           " FontAttributes="Bold" FontSize="18"/>
+                                                            <Span Text="{Binding DatumPretrage , StringFormat='{0:MMMM dd, yyyy}'}"  FontSize="Micro" TextColor="White"></Span>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+
+                                        <StackLayout Padding="4"  Grid.Row="2" Grid.Column="1">
+                                            <Label  Grid.Column="1">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Vrijeme polaska:           " FontAttributes="Bold" FontSize="18"/>
+                                                            <Span Text="{Binding VrijemePolaska , StringFormat='{}{0:hh\\:mm}'}"  FontSize="Micro" TextColor="White"></Span>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+
+                                    </Grid>
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

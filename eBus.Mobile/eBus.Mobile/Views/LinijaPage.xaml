@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:eBus.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eBus.Mobile.Views.LinijaPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:LinijaViewModel></vm:LinijaViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Autobusne linije"
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Padding="10" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Orientation="Vertical" >
+                        <Label Text="Polazište"></Label>
+                        <Entry Text="{Binding Polaziste}"  ></Entry>
+                    </StackLayout>
+                    <Image Source="reverse.png" WidthRequest="40" HeightRequest="20" Grid.Column="1" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <StackLayout Orientation="Vertical" Grid.Column="2" >
+                        <Label Text="Odredište"></Label>
+                        <Entry Text="{Binding Odrediste}" ></Entry>
+                    </StackLayout>
+
+                  
+                   
+                    <DatePicker x:Name="DatumPretrage" IsVisible="{Binding PoDatumu}" Grid.Row="1" Date="{Binding Datum}"  ></DatePicker>
+                    <Label Text="Datum" Grid.Column="1" Grid.Row="1" VerticalTextAlignment="Center"></Label>
+
+                  
+                 
+                   
+                    
+
+                    <StackLayout Grid.Row="3" Grid.ColumnSpan="3">
+                        <Button  Clicked="Button_Clicked" Text="Pretraži"></Button>
+                    </StackLayout>
+
+                </Grid>
+            </StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand" Padding="10">
+
+                <StackLayout >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="Polazište" 
+                                 Style="{DynamicResource ListItemTextStyle}"></Label>
+                        <Label Text="Odrediste" Grid.Column="1"
+                                 Style="{DynamicResource ListItemTextStyle}"></Label>
+                        <Label Text="Kompanija" Grid.Column="2"
+                                 Style="{DynamicResource ListItemTextStyle}"></Label>
+                        <Label Text="Vrijeme polaska" Grid.Column="3"
+                                 Style="{DynamicResource ListItemTextStyle}"></Label>
+                        <Label Text="Cijena" Grid.Column="4"
+                                 Style="{DynamicResource ListItemTextStyle}"></Label>
+
+
+                    </Grid>
+                </StackLayout>
+                <ListView ItemsSource="{Binding LinijaPodaciList}" ItemSelected="ListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    
+                                        <Label Text="{Binding PolazisteNaziv}" Grid.Column="0"></Label>
+                                        <Label Text="{Binding OdredisteNaziv}" Grid.Column="1"></Label>
+                                    <Label Text="{Binding Kompanija}" Grid.Column="2"></Label>
+                                    <Label Text="{Binding VrijemePolaska}" Grid.Column="3"></Label>
+                                    <Label Text="{Binding Cijena,StringFormat='{0:F2} KM'}" Grid.Column="4"></Label>
+                                    
+                                </Grid>
+                                </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Label  Text="Prikaži destinacije od interesa" FontSize="10" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"></Label>
+                        <CheckBox IsChecked="{Binding Preporuka}" Grid.Column="1" ></CheckBox>
+                    </Grid>
+                
+                </StackLayout>
+                <StackLayout x:Name="Preporuka" IsVisible="{Binding Preporuka}">
+                    <Button Clicked="Button_Clicked_1" Text="Preporučene destinacije"></Button>
+                    
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

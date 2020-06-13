@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:eBus.Mobile.ViewModels" 
+             xmlns:converters="clr-namespace:eBus.Mobile.Converters"
+             mc:Ignorable="d"
+             x:Class="eBus.Mobile.Views.RezervacijaPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:RezervacijaViewModel></vm:RezervacijaViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Izvršene rezervacije"
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout>
+                <ListView ItemsSource="{Binding RezervacijeList }" ItemSelected="ListView_ItemSelected" SelectedItem="{Binding SelectedRezervacija}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Padding="10">
+                                    <StackLayout VerticalOptions="CenterAndExpand">
+                                        <StackLayout Padding="8">
+                                            <Label>
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Datum kreiranja:           " FontAttributes="Bold" FontSize="18"/>
+                                                            <Span  Text="{Binding DatumKreiranja,StringFormat='{0:MMMM dd, yy}'}"   FontSize="Micro"></Span>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+
+                                        <StackLayout Padding="8">
+                                            <Label>
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Datum isteka:            " FontAttributes="Bold" FontSize="18"/>
+                                                            <Span  Text="{Binding DatumIsteka,StringFormat='{0:MMMM dd, yy}'}"   FontSize="Micro"></Span>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+
+
+                                        <StackLayout Padding="8">
+                                            <Label>
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Podaci o karti:           " FontAttributes="Bold" FontSize="18"/>
+                                                            <Span  Text="{Binding Karta}"   FontSize="Micro"></Span>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </StackLayout>
+
+                                   
+                                    
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

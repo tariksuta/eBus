@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:eBus.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eBus.Mobile.Views.LinijaDetaljiPage"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:LinijaDetaljiViewModel></vm:LinijaDetaljiViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Odabrana linija"
+                HorizontalOptions="CenterAndExpand" />
+
+            <StackLayout Padding="8">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Polazište:           " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding Linija.PolazisteNaziv}"  FontSize="Micro"></Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            
+            <StackLayout Padding="8">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Odredište:           " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding Linija.OdredisteNaziv}"  FontSize="Micro"></Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Padding="8">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Datum pretrage:               " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding Linija.DatumPretrage, StringFormat='{0:MMMM dd, yyyy}'}"  FontSize="Micro"></Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Padding="8">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Datum :               " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding DatumKarte,  StringFormat='{0:MMMM dd, yyyy}'}"  FontSize="Micro"></Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <StackLayout Padding="8">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Vrijeme polaska :               " FontAttributes="Bold" FontSize="18"/>
+                                    <Span Text="{Binding VrijemePo, StringFormat='{}{0:hh\\:mm}'}"  FontSize="Micro"></Span>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+
+                    <Label Grid.Column="1" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <FormattedString.Spans>
+                                    <Span Text="Vrijeme dolaska :               " FontAttributes="Bold" FontSize="18"/>
+                                    <Span Text="{Binding VrijemeDo, StringFormat='{}{0:hh\\:mm}'}"  FontSize="Micro"></Span>
+                                </FormattedString.Spans>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+
+
+                </Grid>
+                
+            </StackLayout>
+
+            <StackLayout Padding="8">
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="Vozilo:              " FontAttributes="Bold" FontSize="18"/>
+                                <Span Text="{Binding Vozilo}"  FontSize="Micro"></Span>
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+
+            <StackLayout>
+                <Button Text="Odaberi sjediste" Clicked="Button_Clicked_1"></Button>
+                
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
