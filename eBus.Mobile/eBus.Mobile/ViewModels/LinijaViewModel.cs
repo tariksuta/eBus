@@ -98,9 +98,11 @@ namespace eBus.Mobile.ViewModels
 
                 //}
 
+           
+
                 var serchAn = new AngazujeSearchRequest()
                 {
-                    Datum = Datum,
+                    Datum = Datum.Date,
                     ZaLiniju = true
                 };
 

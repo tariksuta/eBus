@@ -27,7 +27,7 @@ namespace eBus.WebApi.Services
                 {
                     if (search.Datum != null)
                     {
-                        query = query.Where(l => l.DatumAngazovanja.Date < search.Datum && l.DatumIsteka > search.Datum);
+                        query = query.Where(l => l.DatumAngazovanja.Date < search.Datum.Date && l.DatumIsteka > search.Datum.Date);
                     }
                 }
                 else

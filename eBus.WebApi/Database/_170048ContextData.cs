@@ -17,6 +17,7 @@ namespace eBus.WebApi.Database
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder)
         {
 
+            
            
             modelBuilder.Entity<Drzava>().HasData( new WebApi.Database.Drzava() { 
                 Id = 1,
@@ -264,8 +265,8 @@ namespace eBus.WebApi.Database
             {
                 Id = 1,
                 VoziloId = 1,
-                DatumAngazovanja = DateTime.Now,
-                DatumIsteka = DateTime.Now.AddDays(7),
+                DatumAngazovanja = new DateTime(2020,6,14),
+                DatumIsteka = new DateTime(2020,7,22),
                 LinijaId = 1,
 
 

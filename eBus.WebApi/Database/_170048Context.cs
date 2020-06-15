@@ -441,6 +441,8 @@ namespace eBus.WebApi.Database
                     .HasConstraintName("FK_Vozilo_Kompanija");
             });
 
+            
+            
             OnModelCreatingPartial(modelBuilder);
         }
 

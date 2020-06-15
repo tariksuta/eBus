@@ -35,6 +35,7 @@ namespace eBus.WinUI.Korisnici
                 {
                     var korisnik = await _korinsici.GetById<Model.Korisnici>(_id.Value);
 
+                    txtSlika.Text = "some data";
                     txtEmail.Text = korisnik.Email;
                     txtIme.Text = korisnik.Ime;
                     txtKorisnickoIme.Text = korisnik.KorisnickoIme;
@@ -76,6 +77,7 @@ namespace eBus.WinUI.Korisnici
                     }
                     else
                     {
+                        korisnik.Slika = Helper.ImageHelper.FromImageToByte(pbUcitajSliku.Image);
                         await _korinsici.Update<Model.Korisnici>(_id.Value, korisnik);
                         MessageBox.Show("Korisnik je izmjenjen");
 
@@ -97,21 +99,24 @@ namespace eBus.WinUI.Korisnici
 
         private void btnUcitaj_Click(object sender, EventArgs e)
         {
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var filename = openFileDialog.FileName;
+
+                txtSlika.Text = filename;
+
+                Image img = Image.FromFile(filename);
+
+                pbUcitajSliku.Image = img;
+
+                korisnik.Slika = ImageHelper.FromImageToByte(img);
+            }
            
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    var filename = openFileDialog.FileName;
-
-                   txtSlika.Text = filename;
-
-                    Image img = Image.FromFile(filename);
-
-                    pbUcitajSliku.Image = img;
-
-                    korisnik.Slika = ImageHelper.FromImageToByte(img);
-                }
              
         }
+
+       
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
