@@ -34,7 +34,7 @@ namespace eBus.Mobile.ViewModels
         }
 
 
-        private byte[] _slika = new byte[0];
+        private byte[] _slika =new byte[0];
 
         public byte[] Slika
         {
