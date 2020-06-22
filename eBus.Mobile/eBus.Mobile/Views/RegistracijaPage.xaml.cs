@@ -11,6 +11,7 @@ using System.IO;
 using eBus.Model.Requests;
 using eBus.Mobile.ViewModels;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json.Converters;
 
 namespace eBus.Mobile.Views
 {
@@ -42,7 +43,7 @@ namespace eBus.Mobile.Views
                     await Application.Current.MainPage.DisplayAlert(" ", "Email nije ispravnog formata", "OK");
 
                 }
-                else if (model.Slika == new byte[0])
+                else if (model.Slika.SequenceEqual(new byte[0]))
                 {
                     await Application.Current.MainPage.DisplayAlert(" ", "Morate unjeti sliku", "OK");
 
@@ -66,6 +67,10 @@ namespace eBus.Mobile.Views
                     await Application.Current.MainPage.DisplayAlert(" ", "Lozinke ne smije biti manja od 4 karaktera", "OK");
 
                 }
+                else if (await model.ProvjeriKorisnickoIme(this.KorinsickoIme.Text))
+                {
+                await Application.Current.MainPage.DisplayAlert(" ", "Korisničko ime nije dozvoljeno", "OK");
+                   }
                 else
                 {
 

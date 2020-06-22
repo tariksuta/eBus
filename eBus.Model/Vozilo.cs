@@ -16,6 +16,9 @@ namespace eBus.Model
         public int? KompanijaId { get; set; }
 
         public virtual Kompanija Kompanija { get; set; }
+        public string VoziloKompanija { get { return Model + " - " + Kompanija; } }
+
+
 
         public override string ToString()
         {

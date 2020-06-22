@@ -21,7 +21,7 @@ namespace eBus.Mobile
         string text = "http://localhost:64472/api";
 
 #if DEBUG
-        private static string _apiURl = "http://localhost:64472/api"; 
+        private static string _apiURl = "http://localhost:5000/api"; 
 #endif
 
         public APIService(string route)

@@ -152,5 +152,18 @@ namespace eBus.WinUI.Vozilo
                 errorProvider.SetError(txtBrojSjedista, null);
             }
         }
+
+        private void cmbKompanije_Validating(object sender, CancelEventArgs e)
+        {
+            if(cmbKompanije.SelectedIndex == -1)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(cmbKompanije, Properties.Resources.Upozorenje);
+            }
+            else
+            {
+                errorProvider.SetError(cmbKompanije, null);
+            }
+        }
     }
 }

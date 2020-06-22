@@ -31,5 +31,14 @@ namespace eBus.WinUI.Properties {
                 return ((string)(this["APIurl"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:5000/api")]
+        public string APIurl2 {
+            get {
+                return ((string)(this["APIurl2"]));
+            }
+        }
     }
 }

@@ -70,6 +70,19 @@ namespace eBus.Mobile.ViewModels
             set { SetProperty(ref _datumRodjenja, value); }
         }
 
+        public async Task<bool> ProvjeriKorisnickoIme(string NovoKorisnickoIme)
+        {
+            var lista = await _putnikService.Get<List<Model.Putnik>>(null);
+
+            foreach (var item in lista)
+            {
+                if (item.KorisnickoIme == NovoKorisnickoIme)
+                    return true;
+            }
+
+            return false;
+        }
+
         public async Task Init()
         {
 

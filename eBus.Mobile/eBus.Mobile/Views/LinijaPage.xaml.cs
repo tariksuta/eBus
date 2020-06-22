@@ -24,12 +24,7 @@ namespace eBus.Mobile.Views
             
         }
 
-        protected async override void OnAppearing()
-        {
-            
-            base.OnAppearing();
-           // await model.Init();
-        }
+       
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
@@ -71,5 +66,7 @@ namespace eBus.Mobile.Views
 
            
         }
+
+        
     }
 }

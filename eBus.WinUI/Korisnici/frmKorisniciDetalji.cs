@@ -200,7 +200,20 @@ namespace eBus.WinUI.Korisnici
             }
         }
 
-        private void txtKorisnickoIme_Validating(object sender, CancelEventArgs e)
+        private async Task<bool> ProvjeriKorisnickoIme(string NovoKorisnickoIme)
+        {
+            var lista = await _korinsici.Get<List<Model.Korisnici>>(null);
+
+            foreach (var item in lista)
+            {
+                if (item.KorisnickoIme == NovoKorisnickoIme)
+                    return true;
+            }
+
+            return false;
+        }
+
+        private async void txtKorisnickoIme_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtKorisnickoIme.Text))
             {
@@ -217,6 +230,13 @@ namespace eBus.WinUI.Korisnici
                 errorProvider2.SetError(txtKorisnickoIme, "Polje treba da sadrzi najmanje 4 karaktera");
 
             }
+            else if(await ProvjeriKorisnickoIme(txtKorisnickoIme.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtKorisnickoIme, null);
+                errorProvider1.SetError(txtKorisnickoIme, null);
+                errorProvider2.SetError(txtKorisnickoIme, "Ovo korisničko ime nije dozvoljeno!");
+            }
             else
             {
                 errorProvider.SetError(txtKorisnickoIme, null);
@@ -224,6 +244,8 @@ namespace eBus.WinUI.Korisnici
                 errorProvider2.SetError(txtKorisnickoIme, null);
             }
         }
+
+       
 
         private void txtLozinka_Validating(object sender, CancelEventArgs e)
         {

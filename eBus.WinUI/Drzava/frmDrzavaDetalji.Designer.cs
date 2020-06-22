@@ -78,7 +78,6 @@
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNaziv);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmDrzavaDetalji";
             this.Text = "frmDrzavaDetalji";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();

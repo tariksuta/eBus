@@ -98,7 +98,7 @@ namespace eBus.WinUI.Grad
 
         private void cmbDrzave_Validating(object sender, CancelEventArgs e)
         {
-            if (int.Parse(cmbDrzave.SelectedValue.ToString()) < 1)
+            if (cmbDrzave.SelectedIndex == -1)
             {
                 e.Cancel = true;
                 errorProvider.SetError(cmbDrzave, Properties.Resources.Upozorenje);

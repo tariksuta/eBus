@@ -26,7 +26,6 @@ namespace eBus.Mobile.Views
                 new HomeMenuItem {Id = MenuItemType.Novosti, Title="Novosti" },
                 new HomeMenuItem {Id = MenuItemType.Linija, Title="Linije" },
                 new HomeMenuItem {Id = MenuItemType.Rezervacija, Title="Rezervacije" },
-                new HomeMenuItem {Id = MenuItemType.Preporuke, Title="Preporuke" },
                 new HomeMenuItem {Id = MenuItemType.Ocjena, Title="Ocjena" },
                 new HomeMenuItem {Id = MenuItemType.Profil, Title="Profil" },
                 new HomeMenuItem {Id = MenuItemType.Odjava, Title="Odjava" },

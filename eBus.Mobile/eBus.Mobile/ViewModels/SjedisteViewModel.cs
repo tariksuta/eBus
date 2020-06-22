@@ -67,9 +67,9 @@ namespace eBus.Mobile.ViewModels
                 VoziloId = voziloID
             };
 
-            var lista = await _sjedistaService.Get<List<Sjediste>>(search); // ovo malo pogledati i u desktop za kartu postaviti PoAngazuje = false
+            var lista = await _sjedistaService.Get<List<Sjediste>>(search); 
 
-            SjedistaList.Clear();// ovo isto ako bude pucalo skloniti
+            SjedistaList.Clear();
 
             foreach (var item in lista)
             {
@@ -81,13 +81,13 @@ namespace eBus.Mobile.ViewModels
             BrojKolona = 4;
             BrojRedova = BrojSjedalaDodnih / BrojKolona;
 
-            //BrojRedova = vozilo.BrojSjedista.Value / BrojKolona;
+          
 
 
 
         }
 
-        public async Task KupiKartu(Sjediste s,DateTime datum, TimeSpan vrijemePolaska)   // dodao datum
+        public async Task KupiKartu(Sjediste s,DateTime datum, TimeSpan vrijemePolaska)  
         {
             var reze = new RezervacijaUpsertRequest();
 
@@ -114,7 +114,7 @@ namespace eBus.Mobile.ViewModels
                 PoVozilu = true,
                 Red = s.Red,
                 Kolona = s.Kolona,
-                PoDatumu = true, // ova tri sam zadnje dodao u vezi datuma
+                PoDatumu = true, 
                 DatumIzdavanja = datum,
                 IzSjedista = false,
                 PoVremenu = true,

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -26,6 +27,7 @@ namespace eBus.Mobile.ViewModels
         {
             Title = "Linije";
             
+
         }
 
         public ObservableCollection<Linija> LinijaList { get; set; } = new ObservableCollection<Linija>();
@@ -68,7 +70,7 @@ namespace eBus.Mobile.ViewModels
             set { SetProperty(ref _datum, value); }
         }
 
-        
+
 
         public ICommand PretraziCommand { get; set; }
 
@@ -82,24 +84,10 @@ namespace eBus.Mobile.ViewModels
 
 
                 List<Model.Angazuje> listaAngazuje = null;
-                //if (PoDatumu)
-                //{
-                //    var serchAn = new AngazujeSearchRequest()
-                //    {
-                //        Datum = Datum,
-                //        ZaLiniju = true
-                //    };
+              
 
-                //    listaAngazuje = await _angazujeService.Get<List<Angazuje>>(serchAn);
-                //}
-                //else
-                //{
-                //    listaAngazuje = await _angazujeService.Get<List<Angazuje>>(null);
 
-                //}
-
-           
-
+                // pretraga angazovanih po TRAZENOM datumu
                 var serchAn = new AngazujeSearchRequest()
                 {
                     Datum = Datum.Date,
@@ -108,6 +96,7 @@ namespace eBus.Mobile.ViewModels
 
                 listaAngazuje = await _angazujeService.Get<List<Angazuje>>(serchAn);
 
+                // pretraga linija po TRAZENOM odredistu i polazistu
                 var search = new LinijaSearchRequest()
                 {
                     NazivOdredista = Odrediste,
@@ -119,14 +108,14 @@ namespace eBus.Mobile.ViewModels
                 var listaLinija = await _linijeService.Get<List<Linija>>(search);
 
 
-                
+
 
                 LinijaPodaciList.Clear();
 
-              
 
 
-               
+
+
 
                 TestniPodaci.Clear();
 
@@ -150,6 +139,8 @@ namespace eBus.Mobile.ViewModels
 
                     foreach (var item2 in listaLinija)
                     {
+
+                        // poredi se linija iz angazuje sa linijom
                         if (item.LinijaId == item2.Id)
                         {
 
@@ -168,6 +159,7 @@ namespace eBus.Mobile.ViewModels
 
                             if (listaKarat.Count != 0)
                             {
+                                // dodajemo podatke o liniji
                                 TestniPodaci.Add(new LinijaPodaci()
                                 {
                                     OdredisteNaziv = gradO.Naziv,
@@ -192,7 +184,7 @@ namespace eBus.Mobile.ViewModels
 
                 }
 
-
+                // pretraga karata po TRAZENOM datumu
                 var searchK = new KartaSearchRequest()
                 {
                     PoAngzuje = false,
@@ -207,15 +199,18 @@ namespace eBus.Mobile.ViewModels
 
                 var listaKarata = await _kartaService.Get<List<Karta>>(searchK);
 
-                var testnaLista = new List<Object>();
+
 
                 int brojacDodanihKarata = 0;
+
+                Dictionary<TimeSpan, int> PregledDodanihLinija = new Dictionary<TimeSpan, int>();
 
                 foreach (var item in listaKarata)
                 {
                     foreach (var item2 in TestniPodaci.ToList())
                     {
-                        if (item.VrijemePolaska != item2.VrijemePolaska && item.AngazujeId == item2.AngazujeID && item.Sjediste.Red == 1 && item.Sjediste.Kolona == 1)
+                        // trazim linije koje nisu dodane u prvoj iteraciji
+                        if (item.VrijemePolaska != item2.VrijemePolaska && item.AngazujeId == item2.AngazujeID/* && item.Sjediste.Red == 1 && item.Sjediste.Kolona == 1*/)
                         {
                             var gradP = await _gradService.GetById<Grad>(item.Angazuje.Linija.PolazisteId);
                             var gradO = await _gradService.GetById<Grad>(item.Angazuje.Linija.OdredisteId);
@@ -229,8 +224,10 @@ namespace eBus.Mobile.ViewModels
 
                             var cijena = await _cijenaService.Get<List<Cijena>>(searchCijena);
 
-                            if (brojacDodanihKarata == 0)
+
+                            if (!PregledDodanihLinija.ContainsKey(item.VrijemePolaska))
                             {
+                                PregledDodanihLinija.Add(item.VrijemePolaska, 1);
                                 TestniPodaci.Add(new LinijaPodaci()
                                 {
                                     OdredisteNaziv = gradO.Naziv,
@@ -244,15 +241,18 @@ namespace eBus.Mobile.ViewModels
 
 
                                 });
-
-                                // brojacDodanihKarata++;
                             }
+
+
+                            
+
 
                         }
                     }
                 }
 
 
+                // prebacujem u listu koja se prikazuje
                 foreach (var item in TestniPodaci.ToList())
                 {
                     LinijaPodaciList.Add(item);
@@ -273,5 +273,8 @@ namespace eBus.Mobile.ViewModels
             Polaziste = Odrediste;
             Odrediste = pocetak;
         }
+
+
     }
+
 }

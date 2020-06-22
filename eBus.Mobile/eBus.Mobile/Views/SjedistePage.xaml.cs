@@ -97,7 +97,7 @@ namespace eBus.Mobile.Views
 
 
 
-                    var searchRez = new RezervacijaSearchRequest() // ovaj uslov postaviti i na ostalim mjestima
+                    var searchRez = new RezervacijaSearchRequest() 
                     {
                         PoAngazmanu = true,
                         AngazmanId = _angazujeID
@@ -118,10 +118,10 @@ namespace eBus.Mobile.Views
                             Red = model.SjedistaList[i].Red,
                             Kolona = model.SjedistaList[i].Kolona,
                             PoDatumu = true,
-                            DatumIzdavanja = _datum, // ovo sam dodao i uslov u kartaservice,
-                            IzSjedista = true, // ovo sam zadnje dodao ovdje radi datuma sto se uvecava za 1 dan
+                            DatumIzdavanja = _datum,
+                            IzSjedista = true, 
                             PoVremenu = true,
-                            VrijemePolaska = _vrijeme // dodao vrijeme polaska da vraca karte za to vrijeme
+                            VrijemePolaska = _vrijeme 
                            
                         };
 

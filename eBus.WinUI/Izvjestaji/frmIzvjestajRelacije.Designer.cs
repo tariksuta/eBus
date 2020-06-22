@@ -1,6 +1,6 @@
 ﻿namespace eBus.WinUI.Izvjestaji
 {
-    partial class frmIzvještajRelacije
+    partial class frmIzvjestajRelacije
     {
         /// <summary>
         /// Required designer variable.

@@ -44,6 +44,7 @@ namespace eBus.WinUI.Putnik
                     }
                     else
                     {
+                        putnik.Slika = Helper.ImageHelper.FromImageToByte(pbSlika.Image);
                         await _putnik.Update<Model.Putnik>(_id.Value, putnik);
                     }
                     
@@ -63,6 +64,8 @@ namespace eBus.WinUI.Putnik
             if(openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 var filename = openFileDialog1.FileName;
+
+                txtSlika.Text = filename;
                 
                 Image img = Image.FromFile(filename);
 
@@ -191,11 +194,25 @@ namespace eBus.WinUI.Putnik
             {
                 var putnik = await _putnik.GetById<Model.Putnik>(_id.Value);
 
+                txtSlika.Text = "some data";
                 txtIme.Text = putnik.Ime;
                 txtPrezime.Text = putnik.Prezime;
                 txtEmail.Text = putnik.Email;
                 txtKorisnickoIme.Text = putnik.KorisnickoIme;
                 pbSlika.Image = Helper.ImageHelper.FromByteToImage(putnik.Slika);
+            }
+        }
+
+        private void txtSlika_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSlika.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(pbSlika, Properties.Resources.Upozorenje);
+            }
+            else
+            {
+                errorProvider1.SetError(pbSlika, null);
             }
         }
     }

@@ -38,7 +38,7 @@ namespace eBus.Mobile.Views
 
         private void Button_Clicked_1(object sender, EventArgs e)
         {
-            //if(model.DatumKarte != "NE POSTOJI KARTA ZA TRAZENI DATUM")
+            
               Navigation.PushAsync(new SjedistePage(model.Linija.VoziloID,model.Linija.AngazujeID,DateTime.Parse(model.DatumKarte),model.VrijemePo));
         }
     }

@@ -95,6 +95,7 @@
             this.cmbGradovi.Name = "cmbGradovi";
             this.cmbGradovi.Size = new System.Drawing.Size(347, 28);
             this.cmbGradovi.TabIndex = 8;
+            this.cmbGradovi.Validating += new System.ComponentModel.CancelEventHandler(this.cmbGradovi_Validating);
             // 
             // txtAdresa
             // 
@@ -184,7 +185,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(467, 492);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmKompanijaDetalji";
             this.Text = "frmKompanijaDetalji";
             this.Load += new System.EventHandler(this.frmKompanijaDetalji_Load);

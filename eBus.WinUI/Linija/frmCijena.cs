@@ -40,7 +40,26 @@ namespace eBus.WinUI.Linija
                 LinijaID = _id.Value
             };
             var lista = await _cijene.Get<List<Model.Cijena>>(search);
-            dgvCijena.DataSource = lista;
+
+            var newlista = new List<object>();
+
+            foreach (var item in lista)
+            {
+                string cijena = null;
+                if(item.Iznos > 0)
+                {
+                    cijena = item.Iznos.ToString() + " KM";
+                }
+
+                newlista.Add(new
+                {
+                    Iznos = cijena,
+                    Popust = item.Popust,
+                    Kompanija = item.Kompanija
+                });
+            }
+          
+            dgvCijena.DataSource = newlista;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)

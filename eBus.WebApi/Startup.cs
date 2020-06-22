@@ -18,6 +18,8 @@ using Microsoft.OpenApi.Models;
 using eBus.Model.Requests;
 using Microsoft.AspNetCore.Authentication;
 using eBus.WebApi.Security;
+using System.ComponentModel;
+using eBus.WebApi.Filters;
 
 namespace eBus.WebApi
 {
@@ -33,8 +35,12 @@ namespace eBus.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<_170048Context>(options =>
-            // options.UseSqlServer(Configuration.GetConnectionString("Konekcija")));
+            
+
+            services.AddMvc(x => x.Filters.Add<ErrorFilter>()).AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute("/Swagger", "");
+            });
 
             var connection = Configuration.GetConnectionString("eBus");
             services.AddDbContext<_170048Context>(options => options.UseSqlServer(connection));
@@ -75,9 +81,10 @@ namespace eBus.WebApi
             services.AddAutoMapper(typeof(_170048Context));
 
             //services.AddScoped<IKorisniciService, KorisniciService>();
+            services.AddScoped<IPreporukaService, PreporukaService>();
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IKorisniciService, KorisniciService>();
-          
+            
             services.AddScoped<ICRUDService<Model.Angazuje, AngazujeSearchRequest, AngazujeUpsertRequest, AngazujeUpsertRequest>, AngazujeService>();
             services.AddScoped<ICRUDService<Model.Drzava, DrzavaSearchRequest, DrzavaUpsertRequest, DrzavaUpsertRequest>, DrzavaService>();
             services.AddScoped<ICRUDService<Model.Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>, GradService>();

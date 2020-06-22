@@ -55,7 +55,7 @@ namespace eBus.WinUI.Angazuje
 
                 cmbVozila.DataSource = lista;
                 cmbVozila.ValueMember = "Id";
-                cmbVozila.DisplayMember = "Model";
+                cmbVozila.DisplayMember = "VoziloKompanija";
                 cmbVozila.SelectedText = "--odaberi vozilo--";
 
             }

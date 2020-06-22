@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace eBus.WebApi.Controllers
 {
 
-  
+    [AllowAnonymous]
     public class PutnikController : BaseCRUDController<Model.Putnik, PutnikSearchRequest, PutnikUpsertRequest, PutnikUpsertRequest>
     {
         public PutnikController(ICRUDService<Putnik, PutnikSearchRequest, PutnikUpsertRequest, PutnikUpsertRequest> service) : base(service)

@@ -47,8 +47,11 @@ namespace eBus.WinUI.Putnik
 
             var lista = await _putnici.Get<List<Model.Putnik>>(search);
 
-            dgvPutnici.DataSource = lista;
+         
+          
 
+            dgvPutnici.DataSource = lista;
+            
         }
 
         private void dgvPutnici_MouseDoubleClick(object sender, MouseEventArgs e)

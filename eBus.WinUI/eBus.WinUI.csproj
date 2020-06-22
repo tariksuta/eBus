@@ -95,6 +95,12 @@
       <DependentUpon>frmAngazujeDetalji.cs</DependentUpon>
     </Compile>
     <Compile Include="APIService.cs" />
+    <Compile Include="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drzava\frmDrzava.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,18 +112,6 @@
     </Compile>
     <Compile Include="Drzava\frmDrzavaDetalji.Designer.cs">
       <DependentUpon>frmDrzavaDetalji.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmIndex.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmIndex.designer.cs">
-      <DependentUpon>frmIndex.cs</DependentUpon>
     </Compile>
     <Compile Include="Grad\frmGrad.cs">
       <SubType>Form</SubType>
@@ -145,11 +139,11 @@
     <Compile Include="Izvjestaji\frmIzvjestajKompanije.Designer.cs">
       <DependentUpon>frmIzvjestajKompanije.cs</DependentUpon>
     </Compile>
-    <Compile Include="Izvjestaji\frmIzvještajRelacije.cs">
+    <Compile Include="Izvjestaji\frmIzvjestajRelacije.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Izvjestaji\frmIzvještajRelacije.Designer.cs">
-      <DependentUpon>frmIzvještajRelacije.cs</DependentUpon>
+    <Compile Include="Izvjestaji\frmIzvjestajRelacije.Designer.cs">
+      <DependentUpon>frmIzvjestajRelacije.cs</DependentUpon>
     </Compile>
     <Compile Include="Izvjestaji\frmKarteIzvjestaj.cs">
       <SubType>Form</SubType>
@@ -310,14 +304,14 @@
     <EmbeddedResource Include="Angazuje\frmAngazujeDetalji.resx">
       <DependentUpon>frmAngazujeDetalji.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Drzava\frmDrzava.resx">
       <DependentUpon>frmDrzava.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Drzava\frmDrzavaDetalji.resx">
       <DependentUpon>frmDrzavaDetalji.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmIndex.resx">
-      <DependentUpon>frmIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Grad\frmGrad.resx">
       <DependentUpon>frmGrad.cs</DependentUpon>
@@ -331,8 +325,8 @@
     <EmbeddedResource Include="Izvjestaji\frmIzvjestajKompanije.resx">
       <DependentUpon>frmIzvjestajKompanije.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Izvjestaji\frmIzvještajRelacije.resx">
-      <DependentUpon>frmIzvještajRelacije.cs</DependentUpon>
+    <EmbeddedResource Include="Izvjestaji\frmIzvjestajRelacije.resx">
+      <DependentUpon>frmIzvjestajRelacije.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Izvjestaji\frmKarteIzvjestaj.resx">
       <DependentUpon>frmKarteIzvjestaj.cs</DependentUpon>
@@ -455,6 +449,9 @@
       <Project>{d7b6b2d5-36a1-4de0-b599-a29bb7c8127b}</Project>
       <Name>eBus.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ebus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />

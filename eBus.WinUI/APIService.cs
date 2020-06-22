@@ -25,7 +25,7 @@ namespace eBus.WinUI
 
         public async Task<T> Get<T>(object search)
         {
-            var url = $"{Properties.Settings.Default.APIurl}/{_route}";
+            var url = $"{Properties.Settings.Default.APIurl2}/{_route}";
 
             try
             {
@@ -49,7 +49,7 @@ namespace eBus.WinUI
 
         public async Task<T> GetById<T>(int id)
         {
-            var url = $"{Properties.Settings.Default.APIurl}/{_route}/{id}";
+            var url = $"{Properties.Settings.Default.APIurl2}/{_route}/{id}";
 
             return await url.WithBasicAuth(KorisnickoIme, Lozinka).GetJsonAsync<T>();
 
@@ -57,7 +57,7 @@ namespace eBus.WinUI
 
         public async Task<T> Insert<T>(object request)
         {
-            var url = $"{Properties.Settings.Default.APIurl}/{_route}";
+            var url = $"{Properties.Settings.Default.APIurl2}/{_route}";
             try
             {
                 return await url.WithBasicAuth(KorisnickoIme, Lozinka).PostJsonAsync(request).ReceiveJson<T>();
@@ -94,7 +94,7 @@ namespace eBus.WinUI
 
         public async Task<T> Update<T>(int id, object request)
         {
-            var url = $"{Properties.Settings.Default.APIurl}/{_route}/{id}";
+            var url = $"{Properties.Settings.Default.APIurl2}/{_route}/{id}";
 
             try
             {

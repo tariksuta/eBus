@@ -43,15 +43,15 @@
                         <Entry Text="{Binding Odrediste}" ></Entry>
                     </StackLayout>
 
-                  
-                   
+
+
                     <DatePicker x:Name="DatumPretrage" IsVisible="{Binding PoDatumu}" Grid.Row="1" Date="{Binding Datum}"  ></DatePicker>
                     <Label Text="Datum" Grid.Column="1" Grid.Row="1" VerticalTextAlignment="Center"></Label>
 
-                  
-                 
-                   
-                    
+
+
+
+
 
                     <StackLayout Grid.Row="3" Grid.ColumnSpan="3">
                         <Button  Clicked="Button_Clicked" Text="Pretraži"></Button>
@@ -62,7 +62,7 @@
             <StackLayout VerticalOptions="CenterAndExpand" Padding="10">
 
                 <StackLayout >
-                    <Grid>
+                    <Grid >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
@@ -88,7 +88,7 @@
 
                     </Grid>
                 </StackLayout>
-                <ListView ItemsSource="{Binding LinijaPodaciList}" ItemSelected="ListView_ItemSelected">
+                <ListView ItemsSource="{Binding LinijaPodaciList}" ItemSelected="ListView_ItemSelected" VerticalScrollBarVisibility="Always">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -105,15 +105,15 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                    
-                                        <Label Text="{Binding PolazisteNaziv}" Grid.Column="0"></Label>
-                                        <Label Text="{Binding OdredisteNaziv}" Grid.Column="1"></Label>
+
+                                    <Label Text="{Binding PolazisteNaziv}" Grid.Column="0"></Label>
+                                    <Label Text="{Binding OdredisteNaziv}" Grid.Column="1"></Label>
                                     <Label Text="{Binding Kompanija}" Grid.Column="2"></Label>
                                     <Label Text="{Binding VrijemePolaska}" Grid.Column="3"></Label>
                                     <Label Text="{Binding Cijena,StringFormat='{0:F2} KM'}" Grid.Column="4"></Label>
-                                    
+
                                 </Grid>
-                                </ViewCell>
+                            </ViewCell>
 
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -129,13 +129,16 @@
                         </Grid.ColumnDefinitions>
 
                         <Label  Text="Prikaži destinacije od interesa" FontSize="10" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"></Label>
-                        <CheckBox IsChecked="{Binding Preporuka}" Grid.Column="1" ></CheckBox>
+                        <CheckBox IsChecked="{Binding Preporuka}"   Grid.Column="1" ></CheckBox>
+                       
                     </Grid>
-                
+
+
                 </StackLayout>
-                <StackLayout x:Name="Preporuka" IsVisible="{Binding Preporuka}">
+                <StackLayout x:Name="Preporuka" IsVisible="{Binding Preporuka}" >
                     <Button Clicked="Button_Clicked_1" Text="Preporučene destinacije"></Button>
-                    
+
+
                 </StackLayout>
             </StackLayout>
         </StackLayout>

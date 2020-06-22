@@ -62,10 +62,10 @@ namespace eBus.WebApi.Services
                                                                 .Include(a => a.Angazuje.Linija)
                                                                 .FirstOrDefault(l => l.Id == entitet.KartaId));
             var cijena = _context.Cijena.FirstOrDefault(l => l.KompanijaId == karta.Angazuje.Vozilo.KompanijaId && l.LinijaId == karta.Angazuje.LinijaId);
-           
 
-            var dodatak = $"Ime i prezime :{putnik.Ime} {putnik.Prezime} \n -> Informacije o karti {karta.BrojKarte}:{karta.Sjediste.Pozicija}:{karta.DatumIzdavanja.Date} \n " +
-                $"-> Podaci o angazmanu {karta.Angazuje.PodaciAngazovani} \n" +
+
+            var dodatak = $"Ime i prezime :{putnik.Ime} {putnik.Prezime} \n -> Informacije o karti {karta.BrojKarte}:{karta.Sjediste.Pozicija} : {karta.DatumIzdavanja.ToString("dd.MM.yyyy")} \n " + $" { karta.VrijemePolaska } \n\n"+
+                $"-> Podaci o angazmanu {karta.Angazuje.PodaciAngazovani} \n\n" +
                 $"Cijena  : { Math.Round(cijena.Iznos, 2)} KM \n" 
                 + $"Cijena sa popustom : { Math.Round( request.CijenaSaPopustom,2)} KM";
 

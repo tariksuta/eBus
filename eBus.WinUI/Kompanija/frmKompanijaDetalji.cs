@@ -140,5 +140,18 @@ namespace eBus.WinUI.Kompanija
                 MessageBox.Show(ex.Message,"Komanija detalji", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void cmbGradovi_Validating(object sender, CancelEventArgs e)
+        {
+            if(cmbGradovi.SelectedIndex == -1)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(cmbGradovi, Properties.Resources.Upozorenje);
+            }
+            else
+            {
+                errorProvider1.SetError(cmbGradovi, null);
+            }
+        }
     }
 }

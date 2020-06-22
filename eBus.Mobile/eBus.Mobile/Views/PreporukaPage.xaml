@@ -11,8 +11,8 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Lista preporucenih destinacija"
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Preporučeno za vas"
+                HorizontalOptions="CenterAndExpand"  TextColor="Firebrick"/>
             <StackLayout>
                 <ListView ItemsSource="{Binding ListaLinija}" ItemSelected="ListView_ItemSelected">
                     <ListView.ItemTemplate>

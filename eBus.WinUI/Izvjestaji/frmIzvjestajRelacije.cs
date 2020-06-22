@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace eBus.WinUI.Izvjestaji
 {
-    public partial class frmIzvještajRelacije : Form
+    public partial class frmIzvjestajRelacije : Form
     {
         private readonly APIService _linijeService = new APIService("Linija");
         private readonly APIService _rezervacijaService = new APIService("Rezervacija");
@@ -23,7 +23,7 @@ namespace eBus.WinUI.Izvjestaji
         private readonly APIService _kompanijeService = new APIService("Kompanija");
         private readonly APIService _angazujeService = new APIService("Angazuje");
         decimal ukupno = 0;
-        public frmIzvještajRelacije()
+        public frmIzvjestajRelacije()
         {
             InitializeComponent();
             
@@ -69,24 +69,26 @@ namespace eBus.WinUI.Izvjestaji
                 Vozilo = ang.Vozilo.Model
 
             };
-
+            decimal zbir = 0;
             // poredi je li putnik zadovoljio uslove za popust ukoliko ga kompanija izdaje
             if (DateTime.Now.Date.Year - putnik.DatumRodjenja.Value.Date.Year > 50
               || DateTime.Now.Date.Year - putnik.DatumRodjenja.Value.Date.Year < 18)
             {
                 izvjestaj.Cijena = cijena[0].Popust == 0 ? cijena[0].Iznos.ToString() : Math.Round((cijena[0].Iznos - (cijena[0].Iznos * decimal.Parse(cijena[0].Popust.Value.ToString()))),2).ToString();
+                zbir +=  cijena[0].Popust == 0 ? cijena[0].Iznos : cijena[0].Iznos - (cijena[0].Iznos * decimal.Parse(cijena[0].Popust.ToString()));
             }
             else
             {
                 izvjestaj.Cijena = cijena[0].Iznos.ToString();
+                zbir += cijena[0].Iznos;
             }
 
             GlavnaLista.Add(izvjestaj);
 
 
-            var saberi = cijena[0].Popust == 0 ? cijena[0].Iznos : cijena[0].Iznos - (cijena[0].Iznos * decimal.Parse(cijena[0].Popust.Value.ToString()));
+            
 
-            ukupno += Math.Round(saberi, 2);
+            ukupno += Math.Round(zbir, 2);
 
         }
         List<IzvjestajRelacija> GlavnaLista = new List<IzvjestajRelacija>();

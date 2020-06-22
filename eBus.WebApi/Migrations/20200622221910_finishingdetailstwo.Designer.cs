@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eBus.WebApi.Database;
 
 namespace eBus.WebApi.Migrations
 {
     [DbContext(typeof(_170048Context))]
-    partial class _170048ContextModelSnapshot : ModelSnapshot
+    [Migration("20200622221910_finishingdetailstwo")]
+    partial class finishingdetailstwo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -488,76 +490,6 @@ namespace eBus.WebApi.Migrations
                             SjedisteId = 3,
                             VrijemeDolaska = new TimeSpan(0, 10, 0, 0, 0),
                             VrijemePolaska = new TimeSpan(0, 8, 0, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 28,
-                            AngazujeId = 1,
-                            BrojKarte = "qqfjlvksgr",
-                            DatumIzdavanja = new DateTime(2020, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SjedisteId = 1,
-                            VrijemeDolaska = new TimeSpan(0, 10, 0, 0, 0),
-                            VrijemePolaska = new TimeSpan(0, 8, 0, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 29,
-                            AngazujeId = 1,
-                            BrojKarte = "rtfjlmksgr",
-                            DatumIzdavanja = new DateTime(2020, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SjedisteId = 2,
-                            VrijemeDolaska = new TimeSpan(0, 10, 0, 0, 0),
-                            VrijemePolaska = new TimeSpan(0, 8, 0, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 30,
-                            AngazujeId = 1,
-                            BrojKarte = "kqfjllksgb",
-                            DatumIzdavanja = new DateTime(2020, 6, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SjedisteId = 3,
-                            VrijemeDolaska = new TimeSpan(0, 10, 0, 0, 0),
-                            VrijemePolaska = new TimeSpan(0, 8, 0, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 31,
-                            AngazujeId = 1,
-                            BrojKarte = "mqfjnlbsgv",
-                            DatumIzdavanja = new DateTime(2020, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SjedisteId = 4,
-                            VrijemeDolaska = new TimeSpan(0, 10, 0, 0, 0),
-                            VrijemePolaska = new TimeSpan(0, 8, 0, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 32,
-                            AngazujeId = 1,
-                            BrojKarte = "eqtjhlbsgv",
-                            DatumIzdavanja = new DateTime(2020, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SjedisteId = 5,
-                            VrijemeDolaska = new TimeSpan(0, 10, 0, 0, 0),
-                            VrijemePolaska = new TimeSpan(0, 8, 0, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 33,
-                            AngazujeId = 1,
-                            BrojKarte = "qwtjglbcgb",
-                            DatumIzdavanja = new DateTime(2020, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SjedisteId = 6,
-                            VrijemeDolaska = new TimeSpan(0, 10, 0, 0, 0),
-                            VrijemePolaska = new TimeSpan(0, 8, 0, 0, 0)
-                        },
-                        new
-                        {
-                            Id = 34,
-                            AngazujeId = 1,
-                            BrojKarte = "pwtdglxcgy",
-                            DatumIzdavanja = new DateTime(2020, 6, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SjedisteId = 7,
-                            VrijemeDolaska = new TimeSpan(0, 10, 0, 0, 0),
-                            VrijemePolaska = new TimeSpan(0, 8, 0, 0, 0)
                         });
                 });
 
@@ -722,14 +654,14 @@ namespace eBus.WebApi.Migrations
                         new
                         {
                             Id = 1,
-                            DatumIzmjene = new DateTime(2020, 6, 23, 1, 10, 34, 839, DateTimeKind.Local).AddTicks(3294),
+                            DatumIzmjene = new DateTime(2020, 6, 23, 0, 19, 9, 476, DateTimeKind.Local).AddTicks(4142),
                             KorisnikId = 1,
                             UlogaId = 1
                         },
                         new
                         {
                             Id = 2,
-                            DatumIzmjene = new DateTime(2020, 6, 23, 1, 10, 34, 843, DateTimeKind.Local).AddTicks(6728),
+                            DatumIzmjene = new DateTime(2020, 6, 23, 0, 19, 9, 480, DateTimeKind.Local).AddTicks(2801),
                             KorisnikId = 2,
                             UlogaId = 2
                         });
@@ -811,7 +743,7 @@ namespace eBus.WebApi.Migrations
                         new
                         {
                             Id = 1,
-                            DatumSlanja = new DateTime(2020, 6, 23, 1, 10, 34, 850, DateTimeKind.Local).AddTicks(3242),
+                            DatumSlanja = new DateTime(2020, 6, 23, 0, 19, 9, 543, DateTimeKind.Local).AddTicks(9690),
                             Naslov = "Obavjest",
                             NovostId = 1
                         });
@@ -851,7 +783,7 @@ namespace eBus.WebApi.Migrations
                         new
                         {
                             Id = 1,
-                            DatumObjave = new DateTime(2020, 6, 23, 1, 10, 34, 849, DateTimeKind.Local).AddTicks(4619),
+                            DatumObjave = new DateTime(2020, 6, 23, 0, 19, 9, 543, DateTimeKind.Local).AddTicks(4591),
                             KorisnikId = 2,
                             Naslov = "Vazna obavjest",
                             Sadrzaj = "Nastavlja se red voznje uz smanjen obim"
@@ -941,7 +873,7 @@ namespace eBus.WebApi.Migrations
                         new
                         {
                             Id = 1,
-                            DatumRegistracije = new DateTime(2020, 6, 23, 1, 10, 34, 844, DateTimeKind.Local).AddTicks(9607),
+                            DatumRegistracije = new DateTime(2020, 6, 23, 0, 19, 9, 537, DateTimeKind.Local).AddTicks(9505),
                             DatumRodjenja = new DateTime(1989, 5, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "mobile@mail.com",
                             Ime = "Mobile",

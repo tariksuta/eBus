@@ -2,6 +2,7 @@
 using eBus.Model;
 using eBus.Model.Requests;
 using eBus.WebApi.Database;
+using eBus.WebApi.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -56,7 +57,7 @@ namespace eBus.WebApi.Services
 
             if(entitet == null)
             {
-                throw new Exception("Niije pronadjen korisnik!");
+                throw new UserException("Niije pronadjen korisnik!");
             }
 
 
@@ -69,7 +70,7 @@ namespace eBus.WebApi.Services
 
             if (request.Lozinka != request.PotvrdiLozinku)
             {
-                throw new Exception("Lozinke se ne podudaraju");
+                throw new UserException("Lozinke se ne podudaraju");
             }
 
             entitet.LozinkaSalt = Util.PasswordGenerator.GenerateSalt();
@@ -99,14 +100,14 @@ namespace eBus.WebApi.Services
 
             if(entitet == null)
             {
-                throw new Exception("Ne postoji korisnik");
+                throw new UserException("Ne postoji korisnik");
             }
 
             _context.Korisnici.Attach(entitet);
             _context.Korisnici.Update(entitet);
 
             if (request.Lozinka != request.PotvrdiLozinku)
-                throw new Exception("Lozinke se ne podudaraju");
+                throw new UserException("Lozinke se ne podudaraju");
 
             entitet.LozinkaSalt = Util.PasswordGenerator.GenerateSalt();
             entitet.LozinkaHash = Util.PasswordGenerator.GenerateHash(request.Lozinka, entitet.LozinkaSalt);

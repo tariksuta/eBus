@@ -30,13 +30,7 @@ namespace eBus.Mobile.ViewModels
             set { SetProperty(ref _vozilo, value); }
         }
 
-        //private DateTime _datumKarte = DateTime.Now;
-
-        //public DateTime DatumKarte
-        //{
-        //    get { return _datumKarte; }
-        //    set { SetProperty(ref _datumKarte, value); }
-        //}
+       
 
         private string _datumKarte = string.Empty;
 

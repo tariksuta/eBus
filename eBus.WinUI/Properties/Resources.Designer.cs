@@ -73,6 +73,16 @@ namespace eBus.WinUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ebus {
+            get {
+                object obj = ResourceManager.GetObject("ebus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye2 {
             get {
                 object obj = ResourceManager.GetObject("eye2", resourceCulture);
