@@ -48,6 +48,8 @@ namespace eBus.WebApi
             services.AddAuthentication("BasicAuthentication")
                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
+           
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TheCodeBuzz-Service", Version = "v1" });
@@ -103,6 +105,7 @@ namespace eBus.WebApi
             services.AddScoped<ICRUDService<Model.PutnikNotifikacije, PutnikNotifikacijeSearchRequest, PutnikNotifikacijeUpsertRequest, PutnikNotifikacijeUpsertRequest>, PutnikNotifikacijeService>();
 
 
+            
 
             services.AddControllers().AddNewtonsoftJson(options =>
                  options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -115,10 +118,17 @@ namespace eBus.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+
+           
+
+
             app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
+
+            
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();

@@ -153,7 +153,7 @@ namespace eBus.WebApi.Services
                         // pronadjemo svaku prvu kartu gdje je i datum izdavanja veci od danasnjeg datuma
                         // isto tako da datum izdavanja ne prelazi vise od pet dana radi obimnosti
                         // jer prikazuje sve kompanije i njihova vremena
-                        if (item2.DatumIzdavanja.Date >= DateTime.Now.Date
+                        if (item2.DatumIzdavanja.Date > DateTime.Now.Date
                             && item2.DatumIzdavanja.Date <= DateTime.Now.AddDays(5))
                         {
                             /*item2.Sjediste.red == 1 && item2.Sjediste.kolona == 1*/

@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace eBus.WebApi.Controllers
 {
 
-    [AllowAnonymous]
+  
 
     public class GradController : BaseCRUDController<Model.Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>
     {

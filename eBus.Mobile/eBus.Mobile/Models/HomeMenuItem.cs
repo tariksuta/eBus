@@ -16,6 +16,7 @@ namespace eBus.Mobile.Models
         Linija,
         Rezervacija,
         Preporuke,
+        Pretraga,
         Odjava
     }
     public class HomeMenuItem

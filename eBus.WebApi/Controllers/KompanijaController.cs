@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace eBus.WebApi.Controllers
 {
 
-    [AllowAnonymous]
+   
     public class KompanijaController : BaseCRUDController<Model.Kompanija, KompanijaSearchRequest, KompanijaUpsertRequest, KompanijaUpsertRequest>
     {
         public KompanijaController(ICRUDService<Model.Kompanija, KompanijaSearchRequest, KompanijaUpsertRequest, KompanijaUpsertRequest> service) : base(service)

@@ -68,6 +68,9 @@ namespace eBus.Mobile.Views
                     case (int)MenuItemType.Rezervacija:
                         MenuPages.Add(id, new NavigationPage(new RezervacijaPage()));
                         break;
+                    case (int)MenuItemType.Pretraga:
+                        MenuPages.Add(id, new NavigationPage(new Pretraga()));
+                        break;
                     case (int)MenuItemType.Odjava:
                         MenuPages.Add(id, new NavigationPage(new Logout()));
                         break;

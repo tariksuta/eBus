@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbKompanije = new System.Windows.Forms.ComboBox();
             this.btnPretrazi = new System.Windows.Forms.Button();
+            this.cmbKompanije = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvPodaci = new System.Windows.Forms.DataGridView();
             this.BrojKarte = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,30 +42,27 @@
             this.txtUkupno = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPreuzmi = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSmanji = new System.Windows.Forms.Button();
+            this.btn_Izadji = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPodaci)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnPretrazi);
             this.groupBox1.Controls.Add(this.cmbKompanije);
-            this.groupBox1.Location = new System.Drawing.Point(120, 27);
+            this.groupBox1.Location = new System.Drawing.Point(142, 69);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(507, 82);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pretraga po kompanijama";
-            // 
-            // cmbKompanije
-            // 
-            this.cmbKompanije.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbKompanije.FormattingEnabled = true;
-            this.cmbKompanije.Location = new System.Drawing.Point(32, 33);
-            this.cmbKompanije.Name = "cmbKompanije";
-            this.cmbKompanije.Size = new System.Drawing.Size(218, 28);
-            this.cmbKompanije.TabIndex = 0;
             // 
             // btnPretrazi
             // 
@@ -77,6 +74,15 @@
             this.btnPretrazi.Text = "Pretraži";
             this.btnPretrazi.UseVisualStyleBackColor = true;
             this.btnPretrazi.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cmbKompanije
+            // 
+            this.cmbKompanije.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbKompanije.FormattingEnabled = true;
+            this.cmbKompanije.Location = new System.Drawing.Point(32, 33);
+            this.cmbKompanije.Name = "cmbKompanije";
+            this.cmbKompanije.Size = new System.Drawing.Size(218, 28);
+            this.cmbKompanije.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -191,22 +197,77 @@
             this.btnPreuzmi.UseVisualStyleBackColor = true;
             this.btnPreuzmi.Click += new System.EventHandler(this.btnPreuzmi_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Firebrick;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnSmanji);
+            this.panel1.Controls.Add(this.btn_Izadji);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 37);
+            this.panel1.TabIndex = 10;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eBus.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(101, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSmanji
+            // 
+            this.btnSmanji.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSmanji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSmanji.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSmanji.ForeColor = System.Drawing.Color.White;
+            this.btnSmanji.Location = new System.Drawing.Point(722, 3);
+            this.btnSmanji.Name = "btnSmanji";
+            this.btnSmanji.Size = new System.Drawing.Size(33, 31);
+            this.btnSmanji.TabIndex = 6;
+            this.btnSmanji.Text = "_";
+            this.btnSmanji.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSmanji.UseVisualStyleBackColor = false;
+            this.btnSmanji.Click += new System.EventHandler(this.btnSmanji_Click);
+            // 
+            // btn_Izadji
+            // 
+            this.btn_Izadji.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_Izadji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Izadji.ForeColor = System.Drawing.Color.White;
+            this.btn_Izadji.Location = new System.Drawing.Point(761, 3);
+            this.btn_Izadji.Name = "btn_Izadji";
+            this.btn_Izadji.Size = new System.Drawing.Size(34, 32);
+            this.btn_Izadji.TabIndex = 6;
+            this.btn_Izadji.Text = "X";
+            this.btn_Izadji.UseVisualStyleBackColor = false;
+            this.btn_Izadji.Click += new System.EventHandler(this.btn_Izadji_Click);
+            // 
             // frmIzvjestajKompanije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 475);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnPreuzmi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtUkupno);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmIzvjestajKompanije";
             this.Text = "frmIzvjestajKompanije";
             this.Load += new System.EventHandler(this.frmIzvjestajKompanije_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPodaci)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,5 +289,9 @@
         private System.Windows.Forms.TextBox txtUkupno;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPreuzmi;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnSmanji;
+        private System.Windows.Forms.Button btn_Izadji;
     }
 }

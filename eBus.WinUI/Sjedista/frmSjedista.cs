@@ -94,5 +94,15 @@ namespace eBus.WinUI.Sjedista
                 frm.Show();
             }
         }
+
+        private void btnSmanji_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btn_Izadji_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

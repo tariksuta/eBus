@@ -18,7 +18,7 @@ namespace eBus.WinUI
             Application.SetCompatibleTextRenderingDefault(false);
             if (new Login().ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new Dashboard());
+                Application.Run(new Form1());
             }
         }
     }

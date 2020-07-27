@@ -30,20 +30,26 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvNovosti = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtNaslov = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnPretrazi = new System.Windows.Forms.Button();
-            this.dtpDatumObjave = new System.Windows.Forms.DateTimePicker();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sadrzaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DatumObjave = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Korisnik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtNaslov = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnPretrazi = new System.Windows.Forms.Button();
+            this.dtpDatumObjave = new System.Windows.Forms.DateTimePicker();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSmanji = new System.Windows.Forms.Button();
+            this.btn_Izadji = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNovosti)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -77,54 +83,6 @@
             this.dgvNovosti.Size = new System.Drawing.Size(699, 266);
             this.dgvNovosti.TabIndex = 0;
             this.dgvNovosti.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvNovosti_MouseDoubleClick);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.txtNaslov);
-            this.groupBox2.Location = new System.Drawing.Point(12, 32);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(254, 100);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Pretraga po naslovu";
-            // 
-            // txtNaslov
-            // 
-            this.txtNaslov.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNaslov.Location = new System.Drawing.Point(6, 45);
-            this.txtNaslov.Name = "txtNaslov";
-            this.txtNaslov.Size = new System.Drawing.Size(242, 26);
-            this.txtNaslov.TabIndex = 0;
-            this.txtNaslov.TextChanged += new System.EventHandler(this.txtNaslov_TextChanged);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnPretrazi);
-            this.groupBox3.Controls.Add(this.dtpDatumObjave);
-            this.groupBox3.Location = new System.Drawing.Point(319, 32);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(378, 100);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Pretraga po datumu objave";
-            // 
-            // btnPretrazi
-            // 
-            this.btnPretrazi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPretrazi.Location = new System.Drawing.Point(252, 45);
-            this.btnPretrazi.Name = "btnPretrazi";
-            this.btnPretrazi.Size = new System.Drawing.Size(104, 36);
-            this.btnPretrazi.TabIndex = 3;
-            this.btnPretrazi.Text = "Pretraži";
-            this.btnPretrazi.UseVisualStyleBackColor = true;
-            this.btnPretrazi.Click += new System.EventHandler(this.btnPretrazi_Click);
-            // 
-            // dtpDatumObjave
-            // 
-            this.dtpDatumObjave.Location = new System.Drawing.Point(6, 49);
-            this.dtpDatumObjave.Name = "dtpDatumObjave";
-            this.dtpDatumObjave.Size = new System.Drawing.Size(225, 22);
-            this.dtpDatumObjave.TabIndex = 3;
             // 
             // Id
             // 
@@ -172,14 +130,115 @@
             this.Korisnik.Name = "Korisnik";
             this.Korisnik.ReadOnly = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtNaslov);
+            this.groupBox2.Location = new System.Drawing.Point(12, 43);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(254, 100);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pretraga po naslovu";
+            // 
+            // txtNaslov
+            // 
+            this.txtNaslov.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNaslov.Location = new System.Drawing.Point(6, 45);
+            this.txtNaslov.Name = "txtNaslov";
+            this.txtNaslov.Size = new System.Drawing.Size(242, 26);
+            this.txtNaslov.TabIndex = 0;
+            this.txtNaslov.TextChanged += new System.EventHandler(this.txtNaslov_TextChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnPretrazi);
+            this.groupBox3.Controls.Add(this.dtpDatumObjave);
+            this.groupBox3.Location = new System.Drawing.Point(319, 43);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(378, 100);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Pretraga po datumu objave";
+            // 
+            // btnPretrazi
+            // 
+            this.btnPretrazi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPretrazi.Location = new System.Drawing.Point(252, 45);
+            this.btnPretrazi.Name = "btnPretrazi";
+            this.btnPretrazi.Size = new System.Drawing.Size(104, 36);
+            this.btnPretrazi.TabIndex = 3;
+            this.btnPretrazi.Text = "Pretraži";
+            this.btnPretrazi.UseVisualStyleBackColor = true;
+            this.btnPretrazi.Click += new System.EventHandler(this.btnPretrazi_Click);
+            // 
+            // dtpDatumObjave
+            // 
+            this.dtpDatumObjave.Location = new System.Drawing.Point(6, 49);
+            this.dtpDatumObjave.Name = "dtpDatumObjave";
+            this.dtpDatumObjave.Size = new System.Drawing.Size(225, 22);
+            this.dtpDatumObjave.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Firebrick;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnSmanji);
+            this.panel1.Controls.Add(this.btn_Izadji);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(709, 37);
+            this.panel1.TabIndex = 12;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eBus.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(101, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSmanji
+            // 
+            this.btnSmanji.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSmanji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSmanji.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSmanji.ForeColor = System.Drawing.Color.White;
+            this.btnSmanji.Location = new System.Drawing.Point(629, 3);
+            this.btnSmanji.Name = "btnSmanji";
+            this.btnSmanji.Size = new System.Drawing.Size(33, 31);
+            this.btnSmanji.TabIndex = 6;
+            this.btnSmanji.Text = "_";
+            this.btnSmanji.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSmanji.UseVisualStyleBackColor = false;
+            this.btnSmanji.Click += new System.EventHandler(this.btnSmanji_Click);
+            // 
+            // btn_Izadji
+            // 
+            this.btn_Izadji.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_Izadji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Izadji.ForeColor = System.Drawing.Color.White;
+            this.btn_Izadji.Location = new System.Drawing.Point(668, 3);
+            this.btn_Izadji.Name = "btn_Izadji";
+            this.btn_Izadji.Size = new System.Drawing.Size(34, 32);
+            this.btn_Izadji.TabIndex = 6;
+            this.btn_Izadji.Text = "X";
+            this.btn_Izadji.UseVisualStyleBackColor = false;
+            this.btn_Izadji.Click += new System.EventHandler(this.btn_Izadji_Click);
+            // 
             // frmNovosti
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(709, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmNovosti";
             this.Text = "frmNovosti";
             this.Load += new System.EventHandler(this.frmNovosti_Load);
@@ -188,6 +247,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,5 +267,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sadrzaj;
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumObjave;
         private System.Windows.Forms.DataGridViewTextBoxColumn Korisnik;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnSmanji;
+        private System.Windows.Forms.Button btn_Izadji;
     }
 }

@@ -40,11 +40,16 @@
             this.txtNaziv = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cmbGradovi = new System.Windows.Forms.ComboBox();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSmanji = new System.Windows.Forms.Button();
+            this.btn_Izadji = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKompanije)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -184,27 +189,67 @@
             this.cmbGradovi.TabIndex = 0;
             this.cmbGradovi.SelectedIndexChanged += new System.EventHandler(this.cmbGradovi_SelectedIndexChanged);
             // 
-            // btnExit
+            // panel1
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Red;
-            this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Location = new System.Drawing.Point(6, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(35, 32);
-            this.btnExit.TabIndex = 7;
-            this.btnExit.Text = "X";
-            this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.panel1.BackColor = System.Drawing.Color.Firebrick;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnSmanji);
+            this.panel1.Controls.Add(this.btn_Izadji);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(996, 37);
+            this.panel1.TabIndex = 12;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eBus.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(101, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSmanji
+            // 
+            this.btnSmanji.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSmanji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSmanji.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSmanji.ForeColor = System.Drawing.Color.White;
+            this.btnSmanji.Location = new System.Drawing.Point(920, 3);
+            this.btnSmanji.Name = "btnSmanji";
+            this.btnSmanji.Size = new System.Drawing.Size(33, 31);
+            this.btnSmanji.TabIndex = 6;
+            this.btnSmanji.Text = "_";
+            this.btnSmanji.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSmanji.UseVisualStyleBackColor = false;
+            this.btnSmanji.Click += new System.EventHandler(this.btnSmanji_Click);
+            // 
+            // btn_Izadji
+            // 
+            this.btn_Izadji.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_Izadji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Izadji.ForeColor = System.Drawing.Color.White;
+            this.btn_Izadji.Location = new System.Drawing.Point(959, 3);
+            this.btn_Izadji.Name = "btn_Izadji";
+            this.btn_Izadji.Size = new System.Drawing.Size(34, 32);
+            this.btn_Izadji.TabIndex = 6;
+            this.btn_Izadji.Text = "X";
+            this.btn_Izadji.UseVisualStyleBackColor = false;
+            this.btn_Izadji.Click += new System.EventHandler(this.btn_Izadji_Click);
             // 
             // frmKompanija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 636);
-            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmKompanija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmKompanija";
@@ -214,6 +259,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -232,6 +279,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Adresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn NazivGrada;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnSmanji;
+        private System.Windows.Forms.Button btn_Izadji;
     }
 }

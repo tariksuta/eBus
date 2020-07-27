@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:vm="clr-namespace:eBus.Mobile.ViewModels"
+             mc:Ignorable="d"
+             x:Class="eBus.Mobile.Views.Pretraga">
+    <ContentPage.BindingContext>
+        <vm:PretragaViewModel></vm:PretragaViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Pretraga"
+               HorizontalOptions="Center"
+                   FontSize="18"
+               />
+
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="OD"></Label>
+                    <Label Text="DO" Grid.Column="1"></Label>
+                    <Label Text="KOMPANIJA" Grid.Column="2"></Label>
+                    <Label Text="PRETRAZI" Grid.Column="3"></Label>
+
+                    <Entry Text="{Binding Polaziste}" Grid.Row="1" VerticalTextAlignment="Center"></Entry>
+                    <Entry Text="{Binding Odrediste}"  Grid.Row="1" Grid.Column="1"  VerticalTextAlignment="Center"></Entry>
+                    <!--<Entry Text="{Binding Kompanija}"  Grid.Row="1" Grid.Column="2"  VerticalTextAlignment="Center"></Entry>-->
+                    <StackLayout Grid.Row="1" Grid.Column="2">
+                        <Picker
+                    ItemsSource="{Binding ListaKompanijaLista}" ItemDisplayBinding="{Binding Naziv}"
+                    SelectedItem="{Binding IzborKompanije}">
+
+                        </Picker>
+                    </StackLayout>
+                    <Button Text="Pretrazi" Grid.Row="1" Grid.Column="3" Clicked="Button_Clicked"></Button>
+                </Grid>
+                    
+            </StackLayout>
+            <ListView ItemsSource="{Binding Podaci}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                   
+                                </Grid.ColumnDefinitions>
+
+
+                                <Label Text="{Binding ImeKorisnika }" Grid.Column="0"></Label>
+                                <Label Text="{Binding BrojKarata}" Grid.Column="1"></Label>
+                                <Label Text="{Binding Ukupno}" Grid.Column="2"></Label>
+                                
+
+                            </Grid>
+                        </ViewCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout>
+                <Label Text="{Binding UkupnaVrijednost}" HorizontalTextAlignment="End"></Label>
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

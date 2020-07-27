@@ -41,10 +41,16 @@
             this.cmbOdrediste = new System.Windows.Forms.ComboBox();
             this.btnPretrazi = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSmanji = new System.Windows.Forms.Button();
+            this.btn_Izadji = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLinije)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -54,7 +60,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(995, 332);
+            this.groupBox1.Size = new System.Drawing.Size(831, 332);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista linija";
@@ -78,7 +84,7 @@
             this.dgvLinije.RowHeadersWidth = 51;
             this.dgvLinije.RowTemplate.Height = 24;
             this.dgvLinije.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLinije.Size = new System.Drawing.Size(987, 305);
+            this.dgvLinije.Size = new System.Drawing.Size(823, 305);
             this.dgvLinije.TabIndex = 0;
             this.dgvLinije.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLinije_CellContentClick);
             this.dgvLinije.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvLinije_MouseDoubleClick);
@@ -177,10 +183,10 @@
             // btnPretrazi
             // 
             this.btnPretrazi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPretrazi.Location = new System.Drawing.Point(751, 176);
+            this.btnPretrazi.Location = new System.Drawing.Point(469, 189);
             this.btnPretrazi.Margin = new System.Windows.Forms.Padding(4);
             this.btnPretrazi.Name = "btnPretrazi";
-            this.btnPretrazi.Size = new System.Drawing.Size(226, 46);
+            this.btnPretrazi.Size = new System.Drawing.Size(130, 46);
             this.btnPretrazi.TabIndex = 3;
             this.btnPretrazi.Text = "Pretraži";
             this.btnPretrazi.UseVisualStyleBackColor = true;
@@ -196,18 +202,74 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Firebrick;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btnSmanji);
+            this.panel1.Controls.Add(this.btn_Izadji);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(834, 37);
+            this.panel1.TabIndex = 5;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::eBus.WinUI.Properties.Resources.logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(101, 43);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSmanji
+            // 
+            this.btnSmanji.BackColor = System.Drawing.Color.Firebrick;
+            this.btnSmanji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSmanji.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSmanji.ForeColor = System.Drawing.Color.White;
+            this.btnSmanji.Location = new System.Drawing.Point(758, 3);
+            this.btnSmanji.Name = "btnSmanji";
+            this.btnSmanji.Size = new System.Drawing.Size(33, 31);
+            this.btnSmanji.TabIndex = 6;
+            this.btnSmanji.Text = "_";
+            this.btnSmanji.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSmanji.UseVisualStyleBackColor = false;
+            this.btnSmanji.Click += new System.EventHandler(this.btnSmanji_Click);
+            // 
+            // btn_Izadji
+            // 
+            this.btn_Izadji.BackColor = System.Drawing.Color.Firebrick;
+            this.btn_Izadji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Izadji.ForeColor = System.Drawing.Color.White;
+            this.btn_Izadji.Location = new System.Drawing.Point(797, 3);
+            this.btn_Izadji.Name = "btn_Izadji";
+            this.btn_Izadji.Size = new System.Drawing.Size(34, 32);
+            this.btn_Izadji.TabIndex = 6;
+            this.btn_Izadji.Text = "X";
+            this.btn_Izadji.UseVisualStyleBackColor = false;
+            this.btn_Izadji.Click += new System.EventHandler(this.btn_Izadji_Click);
+            // 
             // frmLinija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 562);
+            this.ClientSize = new System.Drawing.Size(834, 562);
+            this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPretrazi);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1019, 648);
+            this.MinimumSize = new System.Drawing.Size(650, 348);
             this.Name = "frmLinija";
             this.Text = "Linije";
             this.Load += new System.EventHandler(this.frmLinija_Load);
@@ -215,6 +277,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvLinije)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,5 +298,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Polaziste;
         private System.Windows.Forms.DataGridViewTextBoxColumn Odrediste;
         private System.Windows.Forms.DataGridViewButtonColumn Cijena;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnSmanji;
+        private System.Windows.Forms.Button btn_Izadji;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

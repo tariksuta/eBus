@@ -26,6 +26,7 @@ namespace eBus.Mobile.Views
         private readonly APIService _rezervacijeService = new APIService("Rezervacija");
         private readonly APIService _karteService = new APIService("Karta");
         private readonly APIService _voziloService = new APIService("Vozilo");
+        private readonly APIService _sjedistaService = new APIService("Sjediste");
 
         public SjedistePage(int VoziloID, int AngazujeID,DateTime DatumPretrage, TimeSpan vrijeme)
         {
@@ -63,39 +64,9 @@ namespace eBus.Mobile.Views
 
             bool dodajRed = false;
 
-            for (int i = 0; i < brSjedala; i++)
-            {
+           
 
-                if( i != 0 && brK == 0 && dodajRed)
-                { 
-                    brR++;
-                    this.gridSjedala.RowDefinitions.Add(new RowDefinition() { Height = 60 });
-                    brK = 0;
-                    dodajRed = false;
-                }
-
-               if(brK < 4)
-                {
-                    dodajRed = true;
-                    this.gridSjedala.ColumnDefinitions.Add(new ColumnDefinition() { Width = 50 });
-
-                    Button l = new Button
-                    {
-                        MinimumWidthRequest = 40,
-                        Text = model.SjedistaList[i].Red.ToString() + " " + model.SjedistaList[i].Kolona.ToString(),
-                        TextColor = Color.White,
-                        CornerRadius = 10,
-
-                        HeightRequest = 50,
-                        WidthRequest = 67,
-                        FontSize = 10,
-
-                        BindingContext = model.SjedistaList[i]
-                    };
-
-                    bool zauzeto = false;
-
-
+                   
 
                     var searchRez = new RezervacijaSearchRequest() 
                     {
@@ -106,72 +77,92 @@ namespace eBus.Mobile.Views
                     //da samo prikaze rezervacije koje se odnose na ovaj angazman
                     var listaRezervacije = await _rezervacijeService.Get<List<Rezervacija>>(searchRez);
 
+                    var searchSjedista = new SjedisteSearchRequest()
+                    {
+                        VoziloId = _id
+                    };
 
+                    var listaSjedista = await _sjedistaService.Get<List<Model.Sjediste>>(searchSjedista);
 
-                    foreach (var item in listaRezervacije)
+            var brojac = 0;
+
+                    foreach (var sjediste in listaSjedista)
                     {
 
-                        var searchKarta = new KartaSearchRequest() // ovdje trebam dodati i vrijeme polaska pretragu
+                        if (brojac != 0 && brK == 0 && dodajRed)
                         {
-                            PoAngzuje = false,
-                            PoVozilu = true,
-                            Red = model.SjedistaList[i].Red,
-                            Kolona = model.SjedistaList[i].Kolona,
-                            PoDatumu = true,
-                            DatumIzdavanja = _datum,
-                            IzSjedista = true, 
-                            PoVremenu = true,
-                            VrijemePolaska = _vrijeme 
-                           
-                        };
-
-                        var listaKarata = await _karteService.Get<List<Karta>>(searchKarta);
-                        var vozilId = await _voziloService.GetById<Vozilo>(item.Karta.Angazuje.VoziloId);
-                        for (int j = 0; j < listaKarata.Count; j++)
-                        {
-
-                          
-
-                            if (item.KartaId == listaKarata[j].Id && !item.Otkazana.Value && vozilId.Id == _id && item.Karta.Angazuje.LinijaId == listaKarata[j].Angazuje.LinijaId)
-                            {
-                                zauzeto = true;
-                                break;
-                            }
+                            brR++;
+                            this.gridSjedala.RowDefinitions.Add(new RowDefinition() { Height = 60 });
+                            brK = 0;
+                            dodajRed = false;
                         }
 
+                        dodajRed = true;
+                        this.gridSjedala.ColumnDefinitions.Add(new ColumnDefinition() { Width = 50 });
+
+                        Button l = new Button
+                        {
+                            MinimumWidthRequest = 40,
+                            Text = sjediste.Red.ToString() + " " + sjediste.Kolona.ToString(),
+                            TextColor = Color.White,
+                            CornerRadius = 10,
+
+                            HeightRequest = 50,
+                            WidthRequest = 67,
+                            FontSize = 10,
+
+                            BindingContext = sjediste
+                        };
+
+                       bool zauzeto = false;
+
+                        if (brK < 4)
+                        {
+
+                       
+                            foreach (var rezervacija in listaRezervacije)
+                            {
+                                if (rezervacija.Karta.SjedisteId == sjediste.Id && rezervacija.Karta.DatumIzdavanja.Date == _datum.Date)
+                                {
+                                    zauzeto = true;
+                               
+                                }
+                            }
+
+                            if (zauzeto)
+                            {
+                                l.BackgroundColor = Color.Red;
+                            }
+                            else
+                            {
+                                l.BackgroundColor = Color.Green;
+                                l.Pressed += btn_Clicked;
+                            }
+
+                             this.gridSjedala.Children.Add(l, brK, brR);
+
+                                if (brK == 3)
+                                {
+                                    brK = 0;
+
+                                }
+                                else
+                                {
+                                    brK++;
+                                }
+
+                        }
+                        else
+                        {
+                            brK = 0;
+                        }
+
+                          brojac++;
+
                     }
 
-                    if (zauzeto)
-                    {
-                        l.BackgroundColor = Color.Red;
-                    }
-                    else
-                    {
-                        l.BackgroundColor = Color.Green;
-                        l.Pressed += btn_Clicked;
-                    }
-
-                    this.gridSjedala.Children.Add(l, brK, brR);
 
 
-                    if(brK == 3)
-                    {
-                        brK = 0;
-
-                    }
-                    else
-                    {
-                        brK++;
-                    }
-                    
-                    
-                }
-                else 
-                {
-                    brK = 0;
-                }
-                   
-            }
 
             model.Poruka = false;
             model.VidljivaSjedista = true;
